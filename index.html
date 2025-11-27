@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>صيدلياتي - عناية المستقبل</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --color-primary: #fff1f2;
+        --color-accent: #e11d48;
+      }
+
+      body {
+        font-family: 'Tajawal', sans-serif;
+        background-color: #050001;
+        color: #fff1f2;
+        overflow-x: hidden;
+        min-height: 100vh;
+      }
+      
+      /* Global Fluid Background - Soft & Alive */
+      .bg-global-mesh {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background-color: #0a0002;
+        overflow: hidden;
+      }
+
+      /* Multi-layered Soft Gradients */
+      /* Note: Colors here are fallbacks, they get overridden by App.tsx */
+      .bg-global-mesh::before, .bg-global-mesh::after {
+        content: '';
+        position: absolute;
+        width: 140%;
+        height: 140%;
+        filter: blur(120px);
+        opacity: 0.6;
+        animation: float-bg 15s ease-in-out infinite alternate;
+      }
+
+      .bg-global-mesh::before {
+        top: -20%;
+        left: -20%;
+        background: radial-gradient(circle, rgba(136, 19, 55, 0.2) 0%, transparent 60%);
+      }
+
+      .bg-global-mesh::after {
+        bottom: -20%;
+        right: -20%;
+        background: radial-gradient(circle, rgba(88, 28, 135, 0.15) 0%, transparent 60%);
+        animation-delay: -7s;
+      }
+
+      @keyframes float-bg {
+        0% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+        100% { transform: translate(5%, 5%) scale(1.1); opacity: 0.7; }
+      }
+
+      .font-serif-display {
+        font-family: 'Playfair Display', serif;
+      }
+
+      /* --- Smooth Animations System --- */
+
+      /* 1. Staggered Entry Animation */
+      @keyframes slideUpFade {
+        0% { opacity: 0; transform: translateY(30px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+
+      .animate-enter {
+        animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; /* Luxury easing */
+        opacity: 0;
+      }
+
+      /* Stagger delays */
+      .delay-100 { animation-delay: 0.1s; }
+      .delay-200 { animation-delay: 0.2s; }
+      .delay-300 { animation-delay: 0.3s; }
+      .delay-400 { animation-delay: 0.4s; }
+      .delay-500 { animation-delay: 0.5s; }
+
+      /* 2. Soft Floating (Breathing) */
+      @keyframes softFloat {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+      .animate-float {
+        animation: softFloat 6s ease-in-out infinite;
+      }
+
+      /* 3. Card Hover - Elastic Feel */
+      .card-hover {
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        transform-origin: center;
+      }
+      .card-hover:hover {
+        transform: translateY(-8px) scale(1.01);
+        box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.3);
+      }
+
+      /* 4. Button Shine Effect */
+      .btn-shine {
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-shine::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: 0.5s;
+      }
+      .btn-shine:hover::after {
+        left: 100%;
+      }
+
+      /* Custom Scrollbar - Minimalist */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 20px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+      .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div class="bg-global-mesh"></div>
+    <div id="root"></div>
+  </body>
+</html>
